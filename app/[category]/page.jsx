@@ -15,6 +15,9 @@ async function getData(category){
       console.log(data)
       return data
     }
+
+    
+export const dynamic = "force-dynamic";
 export default async function CartPage({params}){
     const data = await getData(params.category)
     return( 

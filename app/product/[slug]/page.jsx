@@ -21,7 +21,7 @@ async function getData(slug){
 }
 
 
-
+export const dynamic = "force-dynamic";
 export default async function ProductPge({params,}){
     const data = await getData(params.slug)
     return(
