@@ -7,8 +7,8 @@ export default function CartProvider({ children }) {
         mode="payment" 
         cartMode="client-only" 
         stripe={process.env.NEXT_PUBLIC_STRIPE_KEY}
-        successUrl="https://project-brandbass/stripe/success" 
-        cancelUrl="https://project-brandbass/stripe/error" 
+        successUrl="https://project-brandbass.vercel.app/stripe/success" 
+        cancelUrl="https://project-brandbass.vercel.app/stripe/error" 
         currency="pkr" 
         billingAddressCollection={false} 
         shouldPersist={true}
