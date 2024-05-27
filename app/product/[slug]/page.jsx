@@ -25,7 +25,7 @@ export const dynamic = "force-dynamic";
 export default async function ProductPge({params,}){
     const data = await getData(params.slug)
     return(
-        <div className="bg-white">
+        <div className="mb-10 bg-white">
             <div className="mx-auto max-w-screen-xl px-4 md:px-8">
                 <div className="grid gap-8 md:grid-cols-2">
                 <ImageGallery images={data.image}/>

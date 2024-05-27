@@ -11,24 +11,25 @@ async function getData() {
           'slug':slug.current,
           'categoryName':category->name,
           'imageUrl':image[0].asset->url
-      }`
-    const data = await client.fetch(query)
-    return data
-}
-
+        }`
+        const data = await client.fetch(query)
+        return data
+    }
+    
+    
 export const dynamic = "force-dynamic";
 
 export default async function ProductsPage() {
     const data = await getData()
 
     return (
-        <div className="bg-white">
-            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <div className="mb-8 bg-white">
+            <div className="mx-auto max-w-2xl px-4 -py-2 sm:py-2  sm:px-6  lg:max-w-7xl lg:px-8">
                 <div className="flex justify-between items-center">
                     <h2 className="font-semibold">All Products</h2>
                 </div>
 
-                <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                     {data.map((product) => (
                         <div key={product._id} className="group relative ">
                             <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">

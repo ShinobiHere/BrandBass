@@ -3,7 +3,7 @@ import { client,} from "../lib/sanity"
 import Link from "next/link"
 import Image from "next/image"
 async function getData() {
-    const query = `*[_type == 'product'] [0...4] | order(_createdAt desc){
+    const query = `*[_type == 'product'] | order(_createdAt desc){
         _id,
           price,
           name,
@@ -12,13 +12,13 @@ async function getData() {
           'imageUrl':image[0].asset->url
       }
       `
-    const data = await client.fetch(query)
-    return data
-}
-
+      const data = await client.fetch(query)
+      return data
+    }
+export const dynamic = "force-dynamic"
 export default async function Newest() {
     const data = await getData()
-
+    
     return (
         <div className="bg-white">
             <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
@@ -35,7 +35,7 @@ export default async function Newest() {
                     </Link> */}
                 </div>
 
-                <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                     {data.map((product) => (
                         <div key={product._id} className="group relative ">
                             <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
